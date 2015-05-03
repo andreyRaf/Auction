@@ -1,0 +1,5 @@
+D:\RaFa_\roj\Auction\Server\bin\Debug\Server.dll
+D:\RaFa_\roj\Auction\Server\bin\Debug\Server.pdb
+D:\RaFa_\roj\Auction\Server\obj\Debug\Server.dll
+D:\RaFa_\roj\Auction\Server\obj\Debug\Server.pdb
+D:\RaFa_\roj\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

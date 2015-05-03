@@ -1,0 +1,39 @@
+﻿@model Client.NewLotObj
+@using Client
+
+
+@{
+    ViewBag.Title = "NewLot";
+}
+
+
+<h2>NewLot</h2>
+@using (Html.BeginForm("NewLot", "NewLotPage", FormMethod.Post))
+{
+  <div>Имя: @Html.EditorFor(x => x.lot.name)</div>
+  <div>Начальная цена: @Html.EditorFor(x => x.lot.currentPrice)</div>
+  <div>Шаг: @Html.EditorFor(x => x.lot.step)</div>
+  <div>Блиц: @Html.EditorFor(x => x.lot.blic)</div>
+  <div>Город:
+      @Html.DropDownList("cityID",
+        Model.city_category.cities.Select(e => new SelectListItem()
+        {
+            Text = e.name,
+            Value = e.cityID.ToString(),
+            Selected = e.cityID == Model.lot.cityID
+        }),
+        "Город")</div>
+    <div>Категория:
+      @Html.DropDownList("categoryID",
+        Model.city_category.categories.Select(e => new SelectListItem()
+        {
+            Text = e.name,
+            Value = e.categoryID.ToString(),
+            Selected = e.categoryID == Model.lot.categoryID
+        }),
+        "Категория")</div>
+  
+  <p align="center">
+    <input class="actionButtons" type="submit" value="Выставить лот" />
+  </p>
+}

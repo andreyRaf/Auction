@@ -1,0 +1,16 @@
+﻿@model Server.Lot
+
+<div class="lot">
+    <img alt="@Model.name" style="width:300px;height:200px;" src="@Model.image" />
+    <div class="name">Название: @Model.name</div>
+    <div class="step"> Шаг: @Model.step.ToString("c")</div>
+    <div class="description"> Описание: @Model.description</div>
+    <div class="description"> Текущая цена: @Model.currentPrice.ToString("c")</div>
+</div>
+
+@*<div class="item">
+  <h3>@Model.name</h3>
+  @Model.step
+  @Model.description
+  <h4>@Model.currentPrice.ToString("c")</h4>
+</div>*@
