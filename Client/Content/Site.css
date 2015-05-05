@@ -76,7 +76,6 @@ BODY
 DIV#header DIV.title, DIV.item H3, DIV.item H4, DIV.pager A
 {
   font: bold 1em "Arial Narrow", "Franklin Gothic Medium", Arial;
-  /*display:inline-block;*/ 
 }
 
 DIV#header

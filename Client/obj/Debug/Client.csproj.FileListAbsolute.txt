@@ -41,6 +41,94 @@ D:\RaFa_\roj\Auction\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
 D:\RaFa_\roj\Auction\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 D:\RaFa_\roj\Auction\Client\obj\Debug\Client.dll
 D:\RaFa_\roj\Auction\Client\obj\Debug\Client.pdb
+F:\Разработка\Auction\Client\bin\Client.dll
+F:\Разработка\Auction\Client\bin\Client.pdb
+F:\Разработка\Auction\Client\bin\Antlr3.Runtime.dll
+F:\Разработка\Auction\Client\bin\EntityFramework.dll
+F:\Разработка\Auction\Client\bin\Microsoft.Web.Infrastructure.dll
+F:\Разработка\Auction\Client\bin\Newtonsoft.Json.dll
+F:\Разработка\Auction\Client\bin\Server.dll
+F:\Разработка\Auction\Client\bin\System.Net.Http.Formatting.dll
+F:\Разработка\Auction\Client\bin\System.Web.Http.dll
+F:\Разработка\Auction\Client\bin\System.Web.Http.WebHost.dll
+F:\Разработка\Auction\Client\bin\System.Web.Mvc.dll
+F:\Разработка\Auction\Client\bin\System.Web.Optimization.dll
+F:\Разработка\Auction\Client\bin\System.Web.Providers.dll
+F:\Разработка\Auction\Client\bin\System.Web.Razor.dll
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.Deployment.dll
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.dll
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.Razor.dll
+F:\Разработка\Auction\Client\bin\WebGrease.dll
+F:\Разработка\Auction\Client\bin\Server.pdb
+F:\Разработка\Auction\Client\bin\EntityFramework.xml
+F:\Разработка\Auction\Client\bin\Newtonsoft.Json.xml
+F:\Разработка\Auction\Client\bin\System.Net.Http.Formatting.xml
+F:\Разработка\Auction\Client\bin\System.Web.Http.xml
+F:\Разработка\Auction\Client\bin\System.Web.Http.WebHost.xml
+F:\Разработка\Auction\Client\bin\System.Web.Mvc.xml
+F:\Разработка\Auction\Client\bin\System.Web.Razor.xml
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.xml
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.Deployment.xml
+F:\Разработка\Auction\Client\bin\System.Web.WebPages.Razor.xml
+F:\Разработка\Auction\Client\bin\ru\EntityFramework.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Net.Http.Formatting.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Http.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Http.WebHost.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Mvc.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Optimization.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Providers.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.Razor.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.WebPages.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.WebPages.Deployment.resources.dll
+F:\Разработка\Auction\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
+F:\Разработка\Auction\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+F:\Разработка\Auction\Client\obj\Debug\Client.dll
+F:\Разработка\Auction\Client\obj\Debug\Client.pdb
+F:\Разработка\Auction\Client\bin\Database1.sdf
+F:\Разработка\Auction\Client\bin\MySql.Data.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Client.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Client.pdb
+F:\Разработка\Auction (оригинал)\Client\bin\Antlr3.Runtime.dll
+F:\Разработка\Auction (оригинал)\Client\bin\EntityFramework.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Microsoft.Web.Infrastructure.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Newtonsoft.Json.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Server.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Net.Http.Formatting.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Http.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Http.WebHost.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Mvc.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Optimization.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Providers.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Razor.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.Deployment.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.dll
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.Razor.dll
+F:\Разработка\Auction (оригинал)\Client\bin\WebGrease.dll
+F:\Разработка\Auction (оригинал)\Client\bin\Server.pdb
+F:\Разработка\Auction (оригинал)\Client\bin\EntityFramework.xml
+F:\Разработка\Auction (оригинал)\Client\bin\Newtonsoft.Json.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Net.Http.Formatting.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Http.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Http.WebHost.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Mvc.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.Razor.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.Deployment.xml
+F:\Разработка\Auction (оригинал)\Client\bin\System.Web.WebPages.Razor.xml
+F:\Разработка\Auction (оригинал)\Client\bin\ru\EntityFramework.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Net.Http.Formatting.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Http.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Http.WebHost.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Mvc.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Optimization.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Providers.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.Razor.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.WebPages.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.WebPages.Deployment.resources.dll
+F:\Разработка\Auction (оригинал)\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
+F:\Разработка\Auction (оригинал)\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+F:\Разработка\Auction (оригинал)\Client\obj\Debug\Client.dll
+F:\Разработка\Auction (оригинал)\Client\obj\Debug\Client.pdb
 D:\WORK.GIT\.git\Auction\Client\bin\Client.dll
 D:\WORK.GIT\.git\Auction\Client\bin\Client.pdb
 D:\WORK.GIT\.git\Auction\Client\bin\Antlr3.Runtime.dll

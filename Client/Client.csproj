@@ -124,13 +124,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
-    <Compile Include="Controllers\NewLotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\LotsListViewModel.cs" />
     <Compile Include="Models\LotFilter.cs" />
-    <Compile Include="Models\NewLotObj.cs" />
     <Compile Include="Models\Shared\_Layout\_LayoutModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BaseController.cs" />
@@ -223,7 +221,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\LotDescription.cshtml" />
     <Content Include="Views\Navigation\Index.cshtml" />
-    <Content Include="Views\NewLot\NewLotPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

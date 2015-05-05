@@ -6,6 +6,7 @@
     ViewBag.Title = "Главная";
 }
 
+
 <div class="navigation">
     @using (Html.BeginForm("Index", "Home", FormMethod.Get))
     {
@@ -46,12 +47,12 @@
 
 <div class="pager">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new
-    {
-        page = x,
-        categoryID = Model.lotFilter.categoryID,
-        cityID = Model.lotFilter.cityID,
-        search = Model.lotFilter.search,
-    }))
+{
+    page = x,
+    categoryID = Model.lotFilter.categoryID,
+    cityID = Model.lotFilter.cityID,
+    search = Model.lotFilter.search,
+}))
 </div>
 
 
