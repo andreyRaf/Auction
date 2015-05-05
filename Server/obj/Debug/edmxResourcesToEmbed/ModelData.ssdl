@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DB_9C0D5F_auctionsModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище DB_9C0D5F_auctionsModelContainer">
+    <EntitySet Name="category" EntityType="Хранилище DB_9C0D5F_auctionsModel.category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="city" EntityType="Хранилище DB_9C0D5F_auctionsModel.city" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="categoryID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="cityID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+      предупреждение 6013: Первичный ключ в таблице или представлении "DB_9C0D5F_auctions.dbo.lot" не определен, его не удалось вывести. Эта таблица или представление исключена. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+      
+      <EntityType Name="lot">
+        <Property Name="lotID" Type="int" />
+        <Property Name="name" Type="varchar" MaxLength="250" />
+        <Property Name="description" Type="varchar" MaxLength="250" />
+        <Property Name="currentPrice" Type="float" />
+        <Property Name="step" Type="float" />
+        <Property Name="blic" Type="float" />
+        <Property Name="date" Type="datetime" />
+        <Property Name="image" Type="varchar" MaxLength="250" />
+        <Property Name="cityID" Type="int" />
+        <Property Name="categoryID" Type="int" />
+      </EntityType>-->
+</Schema>
