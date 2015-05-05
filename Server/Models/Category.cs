@@ -10,5 +10,9 @@ namespace Server
     {
         public int categoryID { get; set; }
         public string name { get; set; }
+
+        public void GetCateg()
+        {
+        }
     }
 }
