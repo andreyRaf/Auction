@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DB_9C0D5F_auctionsModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище DB_9C0D5F_auctionsModelContainer">
+          <EntitySet Name="category" EntityType="Хранилище DB_9C0D5F_auctionsModel.category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="city" EntityType="Хранилище DB_9C0D5F_auctionsModel.city" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="lot" EntityType="Хранилище DB_9C0D5F_auctionsModel.lot" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cityID" />
+          </Key>
+          <Property Name="cityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="lot">
+          <Key>
+            <PropertyRef Name="lotID" />
+          </Key>
+          <Property Name="lotID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="description" Type="nvarchar" MaxLength="500" />
+          <Property Name="currentPrice" Type="float" />
+          <Property Name="step" Type="float" />
+          <Property Name="blic" Type="float" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="image" Type="nvarchar" MaxLength="200" />
+          <Property Name="cityID" Type="int" />
+          <Property Name="categoryID" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9C0D5F_auctionsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="DB_9C0D5F_auctionsModel.category" />
+          <EntitySet Name="cities" EntityType="DB_9C0D5F_auctionsModel.city" />
+          <EntitySet Name="lots" EntityType="DB_9C0D5F_auctionsModel.lot" />
+        </EntityContainer>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="cityID" />
+          </Key>
+          <Property Name="cityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="lot">
+          <Key>
+            <PropertyRef Name="lotID" />
+          </Key>
+          <Property Name="lotID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="currentPrice" Type="Double" />
+          <Property Name="step" Type="Double" />
+          <Property Name="blic" Type="Double" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="cityID" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DB_9C0D5F_auctionsModelContainer" CdmEntityContainer="DataContext">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="cityID" ColumnName="cityID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lots">
+            <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.lot">
+              <MappingFragment StoreEntitySet="lot">
+                <ScalarProperty Name="lotID" ColumnName="lotID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+                <ScalarProperty Name="step" ColumnName="step" />
+                <ScalarProperty Name="blic" ColumnName="blic" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="cityID" ColumnName="cityID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

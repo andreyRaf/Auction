@@ -18,18 +18,19 @@ namespace Server
         {
             try
             {
-                if (listCategory != null) return listCategory;
                 listCategory = new List<Category>();
-                DataTable tableCategory = ServerConnect.Select("select distinct categoryID, name from category order by categoryID;");
-                if (tableCategory != null)
+                DataContext context = new DataContext();
+
+                IQueryable<category> Category =
+                    from p in context.categories
+                    select p;
+
+                foreach (var itemCateg in Category)
                 {
-                    foreach (DataRow row in tableCategory.Rows)
-                    {
-                        Category newCategory = new Category();
-                        newCategory.categoryID = Convert.ToInt32(row["categoryID"]);
-                        newCategory.name = row["name"].ToString();
-                        listCategory.Add(newCategory);
-                    }
+                    Category newCategory = new Category();
+                    newCategory.categoryID = itemCateg.categoryID;
+                    newCategory.name = itemCateg.name;
+                    listCategory.Add(newCategory);
                 }
 
                 return listCategory;

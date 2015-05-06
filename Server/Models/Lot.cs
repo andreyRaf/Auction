@@ -12,13 +12,13 @@ namespace Server
         public int lotID { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public double currentPrice { get; set; }
-        public double step { get; set; }
-        public double blic { get; set; }
-        public DateTime date { get; set; }
+        public double? currentPrice { get; set; }
+        public double? step { get; set; }
+        public double? blic { get; set; }
+        public DateTime? date { get; set; }
         public string image { get; set; }
-        public int cityID { get; set; }
-        public int categoryID { get; set; }
+        public int? cityID { get; set; }
+        public int? categoryID { get; set; }
 
         public static List<Lot> listLot;
 
@@ -28,37 +28,33 @@ namespace Server
             {
                 listLot = new List<Lot>();
 
-                string sqlString =
-                    String.Format(
-                    " SELECT "+
-                    " lotID, name, description, currentPrice, step, blic, date, image, cityID, categoryID " +
-                    " FROM lot "+
-                    (cityID != null || categoryID != null ? " WHERE " : "" )+
-                    (cityID != null ? " cityID = " + cityID : "")+
-                    (cityID != null & categoryID != null ? " and categoryID = " + categoryID : ((cityID == null & categoryID != null ? " categoryID = " + categoryID : "" ))) +
-                    " order by lotID "+
-                    " OFFSET {0} ROWS "+
-                    " FETCH NEXT {1} ROWS ONLY;", (page - 1) * PageSize, PageSize);
-                DataTable tableLot = ServerConnect.Select(sqlString);
-                if (tableLot != null)
+                DataContext context = new DataContext();
+
+                IQueryable<IGrouping<Int32, lot>> Lots =
+                    from p in context.lots.OrderBy(x => x.date).Skip((page - 1) * PageSize).Take(PageSize)
+                    where p.cityID == cityID & p.categoryID == categoryID
+                    group p by p.lotID into grouping
+                    select grouping;
+
+                foreach (IGrouping<Int32, lot> grp in Lots)
                 {
-                    foreach (DataRow row in tableLot.Rows)
+                    foreach (var itemLots in grp)
                     {
                         Lot newLot = new Lot();
-                        if (row["lotID"] != DBNull.Value) newLot.lotID = Convert.ToInt32(row["lotID"]);
-                        if (row["name"] != DBNull.Value) newLot.name = row["name"].ToString();
-                        if (row["description"] != DBNull.Value) newLot.description = row["description"].ToString();
-                        if (row["currentPrice"] != DBNull.Value) newLot.currentPrice = Convert.ToDouble(row["currentPrice"]);
-                        if (row["step"] != DBNull.Value) newLot.step = Convert.ToDouble(row["step"]);
-                        if (row["blic"] != DBNull.Value) newLot.blic = Convert.ToDouble(row["blic"]);
-                        if (row["date"] != DBNull.Value) newLot.date = Convert.ToDateTime(row["date"]);
-                        if (row["image"] != DBNull.Value) newLot.image = row["image"].ToString();
-                        if (row["cityID"] != DBNull.Value) newLot.cityID = Convert.ToInt32(row["cityID"]);
-                        if (row["categoryID"] != DBNull.Value) newLot.categoryID = Convert.ToInt32(row["categoryID"]);
+                        newLot.lotID = itemLots.lotID;
+                        newLot.name = itemLots.name;
+                        newLot.description = itemLots.description;
+                        newLot.currentPrice = Convert.ToDouble(itemLots.currentPrice);
+                        newLot.step = itemLots.step;
+                        newLot.blic = itemLots.blic;
+                        newLot.date = itemLots.date;
+                        newLot.image = itemLots.image;
+                        newLot.cityID = itemLots.cityID;
+                        newLot.categoryID = itemLots.categoryID;
                         listLot.Add(newLot);
                     }
                 }
-
+                
                 return listLot;
             }
             catch (Exception eGetLot)
@@ -71,12 +67,13 @@ namespace Server
         {
             try
             {
-                string sqlString =
-                    "select count(distinct lotId) from lot "+
-                    (cityID != null || categoryID != null ? " WHERE " : "") +
-                    (cityID != null ? " cityID = " + cityID : "") +
-                    (cityID != null & categoryID != null ? " and categoryID = " + categoryID : ((cityID == null & categoryID != null ? " categoryID = " + categoryID : "")));
-                return ServerConnect.Count(sqlString);
+                DataContext context = new DataContext();
+
+                IQueryable<lot> Lots =
+                    from p in context.lots
+                    where p.cityID == cityID & p.categoryID == categoryID
+                    select p;
+                return Lots.Count(); ;
             }
             catch (Exception eGetCountLot)
             {

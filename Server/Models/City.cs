@@ -18,18 +18,20 @@ namespace Server
         {
             try
             {
-                if (listCity != null) return listCity;
                 listCity = new List<City>();
-                DataTable tableCity = ServerConnect.Select("select distinct cityID, name from city order by cityID;");
-                if (tableCity != null)
+
+                DataContext context = new DataContext();
+
+                IQueryable<city> City =
+                    from p in context.cities
+                    select p;
+
+                foreach (var itemCity in City)
                 {
-                    foreach (DataRow row in tableCity.Rows)
-                    {
-                        City newCity = new City();
-                        newCity.cityID = Convert.ToInt32(row["cityID"]);
-                        newCity.name = row["name"].ToString();
-                        listCity.Add(newCity);
-                    }
+                    City newCity = new City();
+                    newCity.cityID = itemCity.cityID;
+                    newCity.name = itemCity.name;
+                    listCity.Add(newCity);
                 }
 
                 return listCity;
@@ -46,7 +48,15 @@ namespace Server
             {
                 if (newCity != null)
                 {
-                    ServerConnect.Insert("insert into city (cityID, name) values (" + newCity.cityID + ",N'" + newCity.name + "');");
+                    DataContext context = new DataContext();
+
+                    city City = new city();
+                    City.cityID = newCity.cityID;
+                    City.name = newCity.name;
+
+                    context.cities.Add(City);
+                    context.SaveChanges();
+
                     return true;
                 }
                 return false;
@@ -63,7 +73,20 @@ namespace Server
             {
                 if (deleteCity != null)
                 {
-                    ServerConnect.Delete("delete from city where cityID = " + deleteCity.cityID + ";");
+                    DataContext context = new DataContext();
+
+                    IQueryable<city> City =
+                        from p in context.cities
+                        where p.cityID == deleteCity.cityID
+                        select p;
+
+                    foreach (var itemCity in City)
+                    {
+                        context.cities.Remove(itemCity);
+                    }
+
+                    context.SaveChanges();
+
                     return true;
                 }
                 return false;
