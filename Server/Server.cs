@@ -12,263 +12,175 @@ using System.Security.Cryptography;
 
 namespace Server
 {
-    public class ServerConnect
+    // Класс для работы с базой
+    public class DbUtils
     {
-        private static string dataSource = "SQL5002.Smarterasp.net";
-        private static string initialCatalog = "DB_9C0D5F_auctions";
-        private static string Password = "auctions";
-        private static string userID = "DB_9C0D5F_auctions_admin";
+        private static DataContext context = new DataContext();
 
-        private static SqlConnection cnn = null;
+        public static List<Lot> listLot;
+        public static List<Category> listCategory;
+        public static List<City> listCity;
 
-        private static bool OpenConnection()
+        public static List<City> GetCity()
         {
             try
             {
-                return OpenConnection(3, true);
+                listCity = new List<City>();
+
+                IQueryable<city> City =
+                    from p in context.cities
+                    select p;
+
+                foreach (var itemCity in City)
+                {
+                    City newCity = new City();
+                    newCity.cityID = itemCity.cityID;
+                    newCity.name = itemCity.name;
+                    listCity.Add(newCity);
+                }
+
+                return listCity;
             }
-            catch (Exception e)
+            catch (Exception eGetCity)
             {
-                return false;
+                return null;
             }
         }
 
-        private static bool OpenConnection(int timeOut, bool isPooling)
+        public static bool InsertCity(City newCity)
         {
-            string connetionString = null;
-            connetionString = "Data Source=" + dataSource + ";Initial Catalog=" + initialCatalog + ";Password=" + Password + ";Persist Security Info=True;" +
-                "User ID=" + userID + ";"+
-                (isPooling ? "Pooling=true;" : "Pooling=false;") +
-                "Connect Timeout=" + timeOut + ";";
-            cnn = new SqlConnection(connetionString);
             try
             {
-                cnn.Open();
-                return true;
-            }
-            catch (Exception)
-            {
-                if (cnn.State != ConnectionState.Closed) cnn.Close();
-                if (OpenConnection(10, false))
+                if (newCity != null)
+                {
+                    city City = new city();
+                    City.cityID = newCity.cityID;
+                    City.name = newCity.name;
+
+                    context.cities.Add(City);
+                    context.SaveChanges();
+
                     return true;
+                }
+                return false;
+            }
+            catch (Exception eInsertCity)
+            {
                 return false;
             }
         }
 
-        public string GetHashString(string s)
+        public static bool DeleteCity(City deleteCity)
         {
-            //переводим строку в байт-массим  
-            byte[] bytes = Encoding.UTF8.GetBytes(s);
-
-            //создаем объект для получения средст шифрования  
-            MD5CryptoServiceProvider CSP =
-                new MD5CryptoServiceProvider();
-
-            //вычисляем хеш-представление в байтах  
-            byte[] byteHash = CSP.ComputeHash(bytes);
-
-            string hash = string.Empty;
-
-            //формируем одну цельную строку из массива  
-            foreach (byte b in byteHash)
-                hash += string.Format("{0:x2}", b);
-
-            return hash;
-        }
-
-        //Close cnn
-        private static bool CloseConnection()
-        {
-            cnn.Close();
-            return false;
-        }
-
-        public static void Insert(string sqlText)
-        {
-            string query = sqlText;
-
-            //open cnn
-            if (OpenConnection() == true)
+            try
             {
-                //create command and assign the query and cnn from the constructor
-                SqlCommand cmd = new SqlCommand(query, cnn);
+                if (deleteCity != null)
+                {
+                    IQueryable<city> City =
+                        from p in context.cities
+                        where p.cityID == deleteCity.cityID
+                        select p;
 
-                //Execute command
-                cmd.ExecuteNonQuery();
+                    foreach (var itemCity in City)
+                    {
+                        context.cities.Remove(itemCity);
+                    }
 
-                //close cnn
-                CloseConnection();
+                    context.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception eInsertCity)
+            {
+                return false;
             }
         }
 
-        //Update statement
-        public static void Update(string sqlText)
+        public static List<Category> GetCategory()
         {
-            string query = sqlText;
-
-            //Open cnn
-            if (OpenConnection() == true)
+            try
             {
-                //create mysql command
-                SqlCommand cmd = new SqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the cnn using cnn
-                cmd.Connection = cnn;
-
-                //Execute query
-                cmd.ExecuteNonQuery();
-
-                //close cnn
-                CloseConnection();
-            }
-        }
-
-        //Delete statement
-        public static void Delete(string sqlText)
-        {
-            string query = sqlText;
-
-            if (OpenConnection() == true)
-            {
-                SqlCommand cmd = new SqlCommand(query, cnn);
-                cmd.ExecuteNonQuery();
-                CloseConnection();
-            }
-        }
-
-        //Select statement
-        public static DataTable Select(string sqlText)
-        {
-            string query = sqlText;
-
-            DataTable dt = new DataTable();
-
-            //Open cnn
-            if (OpenConnection() == true)
-            {
-                //Create Command
-                SqlCommand cmd = new SqlCommand(query, cnn);
-                //Create a data reader and Execute the command
-                SqlDataReader dataReader = cmd.ExecuteReader();
-
-                dt.Load(dataReader);
+                listCategory = new List<Category>();
                 
-                //close Data Reader
-                dataReader.Close();
+                IQueryable<category> Category =
+                    from p in context.categories
+                    select p;
 
-                //close cnn
-                CloseConnection();
+                foreach (var itemCateg in Category)
+                {
+                    Category newCategory = new Category();
+                    newCategory.categoryID = itemCateg.categoryID;
+                    newCategory.name = itemCateg.name;
+                    listCategory.Add(newCategory);
+                }
 
-                //return list to be displayed
-                return dt;
+                return listCategory;
             }
-            else
+            catch (Exception eGetCategory)
             {
-                return dt;
+                return null;
             }
         }
 
-        //Count statement
-        public static int Count(string sqlText)
+        public static List<Lot> GetLot(int page, int PageSize)
         {
-            string query = sqlText;
-            int Count = -1;
-
-            //Open cnn
-            if (OpenConnection() == true)
-            {
-                //Create Mysql Command
-                SqlCommand cmd = new SqlCommand(query, cnn);
-
-                //ExecuteScalar will return one value
-                Count = int.Parse(cmd.ExecuteScalar() + "");
-
-                //close cnn
-                CloseConnection();
-
-                return Count;
-            }
-            else
-            {
-                return Count;
-            }
+            return GetLot(null, null, page, PageSize);
         }
 
-        //Backup
-        public void Backup()
+        public static List<Lot> GetLot(int? cityID, int? categoryID, int page, int PageSize)
         {
             try
             {
-                DateTime Time = DateTime.Now;
-                int year = Time.Year;
-                int month = Time.Month;
-                int day = Time.Day;
-                int hour = Time.Hour;
-                int minute = Time.Minute;
-                int second = Time.Second;
-                int millisecond = Time.Millisecond;
+                listLot = new List<Lot>();
 
-                //Save file to C:\ with the current date as a filename
-                string path;
-                path = "C:\\SqlBackup" + year + "-" + month + "-" + day +
-            "-" + hour + "-" + minute + "-" + second + "-" + millisecond + ".sql";
-                StreamWriter file = new StreamWriter(path);
+                IQueryable<lot> Lots = 
+                    context.lots
+                    .Where(e => categoryID == null || e.categoryID == categoryID)
+                    .Where(e => cityID == null || e.cityID == cityID)
+                    .OrderBy(p => p.lotID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize);
 
+                foreach (var itemLots in Lots)
+                    {
+                        Lot newLot = new Lot();
+                        newLot.lotID = itemLots.lotID;
+                        newLot.name = itemLots.name;
+                        newLot.description = itemLots.description;
+                        newLot.currentPrice = Convert.ToDouble(itemLots.currentPrice);
+                        newLot.step = itemLots.step;
+                        newLot.blic = itemLots.blic;
+                        newLot.date = itemLots.date;
+                        newLot.image = itemLots.image;
+                        newLot.cityID = itemLots.cityID;
+                        newLot.categoryID = itemLots.categoryID;
+                        listLot.Add(newLot);
+                }
 
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "mysqldump";
-                psi.RedirectStandardInput = false;
-                psi.RedirectStandardOutput = true;
-                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                    userID, Password, dataSource, initialCatalog);
-                psi.UseShellExecute = false;
-
-                Process process = Process.Start(psi);
-
-                string output;
-                output = process.StandardOutput.ReadToEnd();
-                file.WriteLine(output);
-                process.WaitForExit();
-                file.Close();
-                process.Close();
+                return listLot;
             }
-            catch (IOException ex)
+            catch (Exception eGetLot)
             {
-                //"Error , unable to backup!"
+                return null;
             }
         }
 
-        //Restore
-        public void Restore()
+        public static int GetCountLot(int? cityID, int? categoryID)
         {
             try
             {
-                //Read file from C:\
-                string path;
-                path = "C:\\SqlBackup.sql";
-                StreamReader file = new StreamReader(path);
-                string input = file.ReadToEnd();
-                file.Close();
+                IQueryable<lot> Lots =
+                    context.lots
+                    .Where(e => categoryID == null || e.categoryID == categoryID)
+                    .Where(e => cityID == null || e.cityID == cityID);
 
-                ProcessStartInfo psi = new ProcessStartInfo();
-                psi.FileName = "mssql";
-                psi.RedirectStandardInput = true;
-                psi.RedirectStandardOutput = false;
-                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}",
-                    userID, Password, dataSource, initialCatalog);
-                psi.UseShellExecute = false;
-
-
-                Process process = Process.Start(psi);
-                process.StandardInput.WriteLine(input);
-                process.StandardInput.Close();
-                process.WaitForExit();
-                process.Close();
+                return Lots.Count();
             }
-            catch (IOException ex)
+            catch (Exception eGetCountLot)
             {
-                //"Error , unable to Restore!"
+                return 0;
             }
         }
     }
