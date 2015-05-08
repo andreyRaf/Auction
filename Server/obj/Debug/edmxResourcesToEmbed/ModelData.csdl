@@ -1,23 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_9C0D5F_auctionsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="DB_9C0D5F_auctionsEntities4" p1:LazyLoadingEnabled="true">
+  <EntityContainer Name="DataContext" p1:LazyLoadingEnabled="true">
     <EntitySet Name="categories" EntityType="DB_9C0D5F_auctionsModel.category" />
     <EntitySet Name="cities" EntityType="DB_9C0D5F_auctionsModel.city" />
+    <EntitySet Name="lots" EntityType="DB_9C0D5F_auctionsModel.lot" />
   </EntityContainer>
   <EntityType Name="category">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="categoryID" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="categoryID" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="categoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="city">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="cityID" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="cityID" Type="Int32" Nullable="false" />
+    <Property Name="cityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="lot">
+    <Key>
+      <PropertyRef Name="lotID" />
+    </Key>
+    <Property Name="lotID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="currentPrice" Type="Double" />
+    <Property Name="step" Type="Double" />
+    <Property Name="blic" Type="Double" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="cityID" Type="Int32" />
+    <Property Name="categoryID" Type="Int32" />
   </EntityType>
 </Schema>

@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище DB_9C0D5F_auctionsModelContainer" CdmEntityContainer="DB_9C0D5F_auctionsEntities4">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB_9C0D5F_auctionsModelContainer" CdmEntityContainer="DataContext">
     <EntitySetMapping Name="categories">
       <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.category">
         <MappingFragment StoreEntitySet="category">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="categoryID" ColumnName="categoryID" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
@@ -13,9 +12,24 @@
     <EntitySetMapping Name="cities">
       <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.city">
         <MappingFragment StoreEntitySet="city">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="cityID" ColumnName="cityID" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lots">
+      <EntityTypeMapping TypeName="DB_9C0D5F_auctionsModel.lot">
+        <MappingFragment StoreEntitySet="lot">
+          <ScalarProperty Name="lotID" ColumnName="lotID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="blic" ColumnName="blic" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

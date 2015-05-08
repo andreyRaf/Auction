@@ -13,8 +13,8 @@ namespace Client.Utils
         private static List<Category> categories;
         private static void InitData()
         {
-            cities = City.GetCity();
-            categories = Category.GetCategory();
+            cities = DbUtils.GetCity();
+            categories = DbUtils.GetCategory();
         }
 
         protected BaseController()

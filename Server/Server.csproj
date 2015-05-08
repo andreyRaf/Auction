@@ -77,7 +77,6 @@
     <Compile Include="lot.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="LotFilter.cs" />
     <Compile Include="ModelData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

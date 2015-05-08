@@ -20,14 +20,14 @@ namespace Client.Controllers
 
         private static void InitData()
         {
-            lots = Lot.GetLot(null, null, 1, PageSize);
-            cities = City.GetCity();
-            categories = Category.GetCategory();
+            lots = DbUtils.GetLot(1, PageSize);
+            cities = DbUtils.GetCity();
+            categories = DbUtils.GetCategory();
         }
 
         public ViewResult Index(LotFilter filter, int page = 1)
         {
-            List<Lot> lots = Lot.GetLot(filter.cityID, filter.categoryID, page, PageSize);
+            List<Lot> lots = DbUtils.GetLot(filter.cityID, filter.categoryID, page, PageSize);
             LotsListViewModel model = null;
             if (lots != null)
             {
@@ -38,7 +38,7 @@ namespace Client.Controllers
                      {
                          CurrentPage = page,
                          ItemsPerPage = PageSize,
-                         TotalItems = Lot.GetCountLot(filter.cityID, filter.categoryID)
+                         TotalItems = DbUtils.GetCountLot(filter.cityID, filter.categoryID)
                      },
                      lotFilter = filter,
                      filterData = new LotFilterDataModel()
