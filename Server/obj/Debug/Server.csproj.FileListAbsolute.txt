@@ -31,3 +31,13 @@ C:\Auction\Server\bin\Debug\Server.pdb
 C:\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Auction\Server\obj\Debug\Server.dll
 C:\Auction\Server\obj\Debug\Server.pdb
+D:\RaFa_\Auction\Auction\Server\bin\Debug\Server.dll.config
+D:\RaFa_\Auction\Auction\Server\bin\Debug\Server.dll
+D:\RaFa_\Auction\Auction\Server\bin\Debug\Server.pdb
+D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.dll
+D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.SqlServer.dll
+D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.xml
+D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.SqlServer.xml
+D:\RaFa_\Auction\Auction\Server\obj\Debug\Server.dll
+D:\RaFa_\Auction\Auction\Server\obj\Debug\Server.pdb
+D:\RaFa_\Auction\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

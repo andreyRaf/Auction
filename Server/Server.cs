@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.EntityClient;
 using System.Data.SqlClient;
 using System.IO;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using Server.EF;
 
 namespace Server
 {

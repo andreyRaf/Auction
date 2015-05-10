@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Server" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DataContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Server.category" />
+    <EntitySet Name="cities" EntityType="Server.city" />
+    <EntitySet Name="lots" EntityType="Server.lot" />
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="categoryID" />
+    </Key>
+    <Property Name="categoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="cityID" />
+    </Key>
+    <Property Name="cityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="lot">
+    <Key>
+      <PropertyRef Name="lotID" />
+    </Key>
+    <Property Name="lotID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="currentPrice" Type="Double" />
+    <Property Name="step" Type="Double" />
+    <Property Name="blic" Type="Double" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="cityID" Type="Int32" />
+    <Property Name="categoryID" Type="Int32" />
+  </EntityType>
+</Schema>

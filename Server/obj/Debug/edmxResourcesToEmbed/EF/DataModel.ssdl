@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Server" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище ServerContainer">
+    <EntitySet Name="category" EntityType="Хранилище Server.category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="city" EntityType="Хранилище Server.city" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lot" EntityType="Хранилище Server.lot" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="categoryID" />
+    </Key>
+    <Property Name="categoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="cityID" />
+    </Key>
+    <Property Name="cityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="lot">
+    <Key>
+      <PropertyRef Name="lotID" />
+    </Key>
+    <Property Name="lotID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+    <Property Name="currentPrice" Type="float" />
+    <Property Name="step" Type="float" />
+    <Property Name="blic" Type="float" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="image" Type="nvarchar" MaxLength="200" />
+    <Property Name="cityID" Type="int" />
+    <Property Name="categoryID" Type="int" />
+  </EntityType>
+</Schema>

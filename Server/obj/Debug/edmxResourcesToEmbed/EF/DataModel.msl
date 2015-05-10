@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ServerContainer" CdmEntityContainer="DB_9C0D5F_auctionsEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="Server.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="Server.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lots">
+      <EntityTypeMapping TypeName="Server.lot">
+        <MappingFragment StoreEntitySet="lot">
+          <ScalarProperty Name="lotID" ColumnName="lotID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="blic" ColumnName="blic" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
