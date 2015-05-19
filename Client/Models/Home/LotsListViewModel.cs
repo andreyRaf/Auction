@@ -1,4 +1,4 @@
-﻿using Server;
+﻿using Server.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +8,9 @@ namespace Client
 {
     public class LotsListViewModel
     {
-        public IEnumerable<Lot> Lots { get; set; }
-
-        public PagingInfo PagingInfo { get; set; }
-        public LotFilter lotFilter { get; set; }
-        public LotFilterDataModel filterData { get; set; }
+        public IEnumerable<lot> lots { get; set; }
+        public int? current_category { get; set; }
+        public int? current_city { get; set; }
+        public string part_name { get; set; }
     }
 }

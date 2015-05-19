@@ -1,7 +1,9 @@
 ﻿using Server;
+using Server.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,67 +11,73 @@ namespace Client.Controllers
 {
     public class HomeController : Controller
     {
-        private static List<Lot> lots = null;
-        private static List<City> cities = null;
-        private static List<Category> categories = null;
-        public static int PageSize = 3;
-        static HomeController()
+        private void DropDownInit()
         {
-            InitData();
+            CategoryRepository catRep = new CategoryRepository();
+            List<category> categList = catRep.Get().ToList();
+            ViewBag.categories = new SelectList(categList, "categoryID", "name", null);
+
+            CityRepository cityRep = new CityRepository();
+            List<city> cityList = cityRep.Get().ToList();
+            ViewBag.cities = new SelectList(cityList, "cityID", "name", null);
         }
 
-        private static void InitData()
+        [HttpGet]
+        public ViewResult Index()
         {
-            lots = DbUtils.GetLot(1, PageSize);
-            cities = DbUtils.GetCity();
-            categories = DbUtils.GetCategory();
-        }
+            LotRepository lotRep = new LotRepository();
+            List<lot> lots = lotRep.Get().ToList();
 
-        public ViewResult Index(LotFilter filter, int page = 1)
-        {
-            List<Lot> lots = DbUtils.GetLot(filter.cityID, filter.categoryID, page, PageSize);
-            LotsListViewModel model = null;
-            if (lots != null)
-            {
-                model = new LotsListViewModel
+            DropDownInit();
+
+            LotsListViewModel model = new LotsListViewModel
                  {
-                     Lots = lots.Take(PageSize),
-                     PagingInfo = new PagingInfo
-                     {
-                         CurrentPage = page,
-                         ItemsPerPage = PageSize,
-                         TotalItems = DbUtils.GetCountLot(filter.cityID, filter.categoryID)
-                     },
-                     lotFilter = filter,
-                     filterData = new LotFilterDataModel()
-                     {
-                         categories = categories,
-                         cities = cities
-                     }
+                     lots = lots
                  };
-            }
 
             return View(model);
         }
 
         [HttpPost]
-        public RedirectToRouteResult UpPrice(int lotID, LotFilter filter, int page)
+        public ViewResult Index(int? current_category, int? current_city, string part_name)
         {
-            if (page <= 0)
-            {
-                throw new ArgumentException("page");
-            }
+            LotRepository lotRep = new LotRepository();
+            Expression<Func<lot, bool>> filter =
+                x => (x.cityID == current_city && current_city != null || current_city == null)
+                              && (x.categoryID == current_category && current_category != null || current_category == null)
+                              && (x.name.IndexOf(part_name.Trim()) != -1 && part_name.Trim() != "" || part_name.Trim() == "");
+            List<lot> lots = lotRep.Get(filter).ToList();
 
-            Lot lot = lots.First(e => e.lotID == lotID);
-            lot.currentPrice += lot.step;
+            DropDownInit();
 
-            return RedirectToAction("Index", new
+            LotsListViewModel model = new LotsListViewModel
             {
-                page = page,
-                categoryID = filter.categoryID,
-                cityID = filter.cityID,
-                search = filter.search
-            });
+                lots = lots
+            };
+
+            return View(model);
         }
+
+
+
+        //[HttpPost]
+        //public RedirectToRouteResult UpPrice(int lotID, LotFilter filter, int page)
+        //{
+        //    if (page <= 0)
+        //    {
+        //        throw new ArgumentException("page");
+        //    }
+
+        //    Lot lot = lots.First(e => e.lotID == lotID);
+        //    lot.currentPrice += lot.step;
+
+        //    return RedirectToAction("Index", new
+        //    {
+        //        page = page,
+        //        categoryID = filter.categoryID,
+        //        cityID = filter.cityID,
+        //        search = filter.search
+        //    });
+        //}
     }
 }

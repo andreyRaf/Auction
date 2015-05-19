@@ -6,46 +6,31 @@
     ViewBag.Title = "Главная";
 }
 
-
 <div class="navigation">
-    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    @using (Html.BeginForm())
     {
-        @Html.DropDownList("cityID",
-        Model.filterData.cities.Select(e => new SelectListItem()
-        {
-            Text = e.name,
-            Value = e.cityID.ToString(),
-            Selected = e.cityID == Model.lotFilter.cityID
-        }),
-        "Город")
-        @Html.DropDownList("categoryID",
-        Model.filterData.categories.Select(e => new SelectListItem()
-        {
-            Text = e.name,
-            Value = e.categoryID.ToString(),
-            Selected = e.categoryID == Model.lotFilter.categoryID
-        }),
-        "Категория")
-        @Html.TextBox("search")
+        @Html.DropDownList("current_category", (IEnumerable<SelectListItem>)ViewBag.categories, "Все категории");
+        @Html.DropDownList("current_city", (IEnumerable<SelectListItem>)ViewBag.cities, "Все");
+        @Html.TextBoxFor(x => x.part_name)
         <input type="submit" value="Найти" />
     }
 </div>
 
 
-@foreach (var lot in Model.Lots)
+@foreach (var lot in Model.lots)
 {
     Html.RenderPartial("LotDescription", lot);
-    using (Html.BeginForm("UpPrice", "Home", new { page = Model.PagingInfo.CurrentPage }, FormMethod.Post))
+   @* using (Html.BeginForm("UpPrice", "Home", new { page = Model.PagingInfo.CurrentPage }, FormMethod.Post))
     {
     @Html.Hidden("lotID", lot.lotID)
     @Html.Hidden("categoryID", Model.lotFilter.categoryID)
     @Html.Hidden("cityID", Model.lotFilter.cityID)
     @Html.Hidden("search", Model.lotFilter.search)
     <input type="submit" value="UpPrice" />
-    }
+    }*@
 }
 
-<div class="pager">
+@*<div class="pager">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new
 {
     page = x,
@@ -53,6 +38,6 @@
     cityID = Model.lotFilter.cityID,
     search = Model.lotFilter.search,
 }))
-</div>
+</div>*@
 
 

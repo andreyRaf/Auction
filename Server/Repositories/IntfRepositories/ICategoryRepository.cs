@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class LotRepository : BaseRepository<lot>, ILotRepository
+    public interface ICategoryRepository : IRepository<category>
     {
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Server
         where View : Domain
         where Domain : class
     {
-        IQueryable<View> Get(Predicate<Domain> filter = null);
+        IQueryable<View> Get(Expression<Func<Domain, bool>> filter = null);
 
         Domain Save(Domain objectToSave);
 

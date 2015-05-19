@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity.Migrations;
 using System.Data.Entity;
 using Server.EF;
+using System.Linq.Expressions;
 
 namespace Server
 {
@@ -13,15 +14,15 @@ namespace Server
         where View : Domain
         where Domain : class
     {
-        protected DataContext context { get; set; }
+        protected DataContext context = new DataContext();//{ get; set; }
 
-        //Func<Domain, bool>
-        public virtual IQueryable<View> Get(Predicate<Domain> filter = null)
+                                            //Predicate<Domain>
+        public virtual IQueryable<View> Get(Expression<Func<Domain, bool>> filter = null)
         {
             IQueryable<Domain> filtered = context.Set<Domain>();
             if (filter != null)
             {
-                filtered = filtered.Where(e => filter(e));
+                filtered = filtered.Where(filter);
             }
             return this.Extend(filtered);
         }

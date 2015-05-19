@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Server.EF;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Server
 {
-    public class City
+    public class CityRepository : BaseRepository<city>, ICityRepository
     {
-        public int cityID { get; set; }
-        public string name { get; set; }
     }
 }
