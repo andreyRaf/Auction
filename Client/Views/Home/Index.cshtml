@@ -9,8 +9,8 @@
 <div class="navigation">
     @using (Html.BeginForm())
     {
-        @Html.DropDownList("current_category", (IEnumerable<SelectListItem>)ViewBag.categories, "Все категории");
-        @Html.DropDownList("current_city", (IEnumerable<SelectListItem>)ViewBag.cities, "Все");
+        @Html.DropDownList("current_category", (IEnumerable<SelectListItem>)ViewBag.categories, "Все категории")
+        @Html.DropDownList("current_city", (IEnumerable<SelectListItem>)ViewBag.cities, "Все")
         @Html.TextBoxFor(x => x.part_name)
         <input type="submit" value="Найти" />
     }

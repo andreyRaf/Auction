@@ -1,0 +1,24 @@
+﻿@model Server.EF.lot
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+@using (Html.BeginForm())
+{
+  <div>Имя: @Html.EditorFor(x => x.name)</div>
+  <div>Описание: @Html.EditorFor(x => x.description)</div>
+  <div>Начальная цена: @Html.EditorFor(x => x.currentPrice)</div>
+  <div>Шаг: @Html.EditorFor(x => x.step)</div>
+  <div>Блиц: @Html.EditorFor(x => x.blic)</div>
+  <div>Категория: @Html.DropDownList("categoryID", (IEnumerable<SelectListItem>)ViewBag.categories, "Все категории")</div>
+  <div>Город: @Html.DropDownList("cityID", (IEnumerable<SelectListItem>)ViewBag.cities, "Все")</div>
+  <label>
+  </label>
+  
+  <p align="center">
+    <input class="actionButtons" type="submit" value="Выставить лот" />
+  </p>
+}
