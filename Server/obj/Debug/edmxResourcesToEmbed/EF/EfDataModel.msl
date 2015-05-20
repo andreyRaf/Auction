@@ -20,6 +20,8 @@
     <EntitySetMapping Name="lots">
       <EntityTypeMapping TypeName="Server.lot">
         <MappingFragment StoreEntitySet="lot">
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="lotID" ColumnName="lotID" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
@@ -30,6 +32,34 @@
           <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="cityID" ColumnName="cityID" />
           <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="Server.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_status">
+      <EntityTypeMapping TypeName="Server.t_status">
+        <MappingFragment StoreEntitySet="t_status">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Server.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="change_on" ColumnName="change_on" />
+          <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

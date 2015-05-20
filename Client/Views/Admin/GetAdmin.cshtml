@@ -1,0 +1,23 @@
+﻿@model List<Server.EF.lot>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+@foreach (var lot in Model)
+{
+    <div class="lot">
+        <img alt="@lot.name" style="width:300px;height:200px;" src="@lot.image" />
+        <div class="name">Название: @lot.name</div>
+        <div class="step">Шаг: @lot.step.ToString()</div>
+        <div class="description">Описание: @lot.description</div>
+        <div class="currentPrice">Начальная цена: @lot.currentPrice.ToString()</div>
+        <div class="status">@Html.DropDownList("statusID", (IEnumerable<SelectListItem>)ViewBag.status)</div>
+        
+        @using (Html.BeginForm(@*"UpPrice", "Home", new { page = Model.PagingInfo.CurrentPage }, FormMethod.Post*@))
+        {
+            @Html.Hidden("lotID", lot.lotID)
+            <input type="submit" value="Сохранить" />
+        }
+    </div>
+}

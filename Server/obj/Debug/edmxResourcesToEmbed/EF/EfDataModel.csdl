@@ -4,6 +4,9 @@
     <EntitySet Name="categories" EntityType="Server.category" />
     <EntitySet Name="cities" EntityType="Server.city" />
     <EntitySet Name="lots" EntityType="Server.lot" />
+    <EntitySet Name="roles" EntityType="Server.role" />
+    <EntitySet Name="t_status" EntityType="Server.t_status" />
+    <EntitySet Name="users" EntityType="Server.user" />
   </EntityContainer>
   <EntityType Name="category">
     <Key>
@@ -33,5 +36,32 @@
     <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
     <Property Name="cityID" Type="Int32" />
     <Property Name="categoryID" Type="Int32" />
+    <Property Type="Int64" Name="userID" />
+    <Property Type="Int32" Name="statusID" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Type="Int32" Name="roleID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="t_status">
+    <Key>
+      <PropertyRef Name="statusID" />
+    </Key>
+    <Property Type="Int64" Name="statusID" Nullable="false" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Type="Int64" Name="userID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="mail" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="roleID" Nullable="false" />
+    <Property Type="String" Name="vk_userID" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="change_on" Precision="3" />
   </EntityType>
 </Schema>

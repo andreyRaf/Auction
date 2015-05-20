@@ -206,6 +206,7 @@ C:\Auction\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
 C:\Auction\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Auction\Client\obj\Debug\Client.dll
 C:\Auction\Client\obj\Debug\Client.pdb
+D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 D:\RaFa_\Auction\Auction\Client\bin\Client.dll
 D:\RaFa_\Auction\Auction\Client\bin\Client.pdb
 D:\RaFa_\Auction\Auction\Client\bin\Antlr3.Runtime.dll
@@ -247,6 +248,5 @@ D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.Razor.resources.dll
 D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.WebPages.resources.dll
 D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.WebPages.Deployment.resources.dll
 D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
-D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.dll
 D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.pdb

@@ -7,7 +7,10 @@
       <Diagram DiagramId="399510a244e84c3a8f7ddbd8174994d4" Name="Диаграмма1">
         <EntityTypeShape EntityType="Server.category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Server.city" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Server.lot" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Server.lot" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Server.role" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Server.t_status" Width="1.5" PointX="4.875" PointY="2.875" />
+        <EntityTypeShape EntityType="Server.user" Width="1.5" PointX="2.75" PointY="2.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

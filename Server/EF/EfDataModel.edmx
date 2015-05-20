@@ -4,11 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Server" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Server" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="Хранилище ServerContainer">
           <EntitySet Name="category" EntityType="Хранилище Server.category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="city" EntityType="Хранилище Server.city" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lot" EntityType="Хранилище Server.lot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="role" EntityType="Хранилище Server.role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="t_status" EntityType="Хранилище Server.t_status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user" EntityType="Хранилище Server.user" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="category">
           <Key>
@@ -38,9 +41,35 @@
           <Property Name="image" Type="nvarchar" MaxLength="200" />
           <Property Name="cityID" Type="int" />
           <Property Name="categoryID" Type="int" />
+          <Property Name="userID" Type="bigint" />
+          <Property Name="statusID" Type="int" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="bigint" Nullable="false" />
+          <Property Name="status" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="bigint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleID" Type="int" Nullable="false" />
+          <Property Name="vk_userID" Type="nchar" MaxLength="10" />
+          <Property Name="change_on" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Server" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -48,6 +77,9 @@
           <EntitySet Name="categories" EntityType="Server.category" />
           <EntitySet Name="cities" EntityType="Server.city" />
           <EntitySet Name="lots" EntityType="Server.lot" />
+          <EntitySet Name="roles" EntityType="Server.role" />
+          <EntitySet Name="t_status" EntityType="Server.t_status" />
+          <EntitySet Name="users" EntityType="Server.user" />
         </EntityContainer>
         <EntityType Name="category">
           <Key>
@@ -77,6 +109,33 @@
           <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="cityID" Type="Int32" />
           <Property Name="categoryID" Type="Int32" />
+          <Property Type="Int64" Name="userID" />
+          <Property Type="Int32" Name="statusID" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Type="Int32" Name="roleID" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="t_status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Type="Int64" Name="statusID" Nullable="false" />
+          <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Type="Int64" Name="userID" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="roleID" Nullable="false" />
+          <Property Type="String" Name="vk_userID" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="change_on" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -103,6 +162,8 @@
           <EntitySetMapping Name="lots">
             <EntityTypeMapping TypeName="Server.lot">
               <MappingFragment StoreEntitySet="lot">
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="lotID" ColumnName="lotID" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
@@ -113,6 +174,34 @@
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="cityID" ColumnName="cityID" />
                 <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="Server.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_status">
+            <EntityTypeMapping TypeName="Server.t_status">
+              <MappingFragment StoreEntitySet="t_status">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Server.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="change_on" ColumnName="change_on" />
+                <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

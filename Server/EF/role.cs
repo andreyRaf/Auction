@@ -12,19 +12,9 @@ namespace Server.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class lot
+    public partial class role
     {
-        public int lotID { get; set; }
+        public int roleID { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
-        public Nullable<double> currentPrice { get; set; }
-        public Nullable<double> step { get; set; }
-        public Nullable<double> blic { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
-        public string image { get; set; }
-        public Nullable<int> cityID { get; set; }
-        public Nullable<int> categoryID { get; set; }
-        public Nullable<long> userID { get; set; }
-        public Nullable<int> statusID { get; set; }
     }
 }

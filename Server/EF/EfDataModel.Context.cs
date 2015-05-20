@@ -28,5 +28,8 @@ namespace Server.EF
         public DbSet<category> categories { get; set; }
         public DbSet<city> cities { get; set; }
         public DbSet<lot> lots { get; set; }
+        public DbSet<role> roles { get; set; }
+        public DbSet<t_status> t_status { get; set; }
+        public DbSet<user> users { get; set; }
     }
 }

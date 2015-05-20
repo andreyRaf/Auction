@@ -4,6 +4,9 @@
     <EntitySet Name="category" EntityType="Хранилище Server.category" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="city" EntityType="Хранилище Server.city" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="lot" EntityType="Хранилище Server.lot" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="role" EntityType="Хранилище Server.role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="t_status" EntityType="Хранилище Server.t_status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user" EntityType="Хранилище Server.user" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="category">
     <Key>
@@ -33,5 +36,32 @@
     <Property Name="image" Type="nvarchar" MaxLength="200" />
     <Property Name="cityID" Type="int" />
     <Property Name="categoryID" Type="int" />
+    <Property Name="userID" Type="bigint" />
+    <Property Name="statusID" Type="int" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_status">
+    <Key>
+      <PropertyRef Name="statusID" />
+    </Key>
+    <Property Name="statusID" Type="bigint" Nullable="false" />
+    <Property Name="status" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleID" Type="int" Nullable="false" />
+    <Property Name="vk_userID" Type="nchar" MaxLength="10" />
+    <Property Name="change_on" Type="datetime" />
   </EntityType>
 </Schema>
