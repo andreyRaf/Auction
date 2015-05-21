@@ -26,7 +26,8 @@ namespace Client.Controllers
         public ViewResult Index()
         {
             LotRepository lotRep = new LotRepository();
-            List<lot> lots = lotRep.Get().ToList();
+            Expression<Func<lot, bool>> filter = x => x.statusID == (int)Status.approve;
+            List<lot> lots = lotRep.Get(filter).ToList();
 
             DropDownInit();
 
@@ -45,7 +46,8 @@ namespace Client.Controllers
             Expression<Func<lot, bool>> filter =
                 x => (x.cityID == current_city && current_city != null || current_city == null)
                               && (x.categoryID == current_category && current_category != null || current_category == null)
-                              && (x.name.IndexOf(part_name.Trim()) != -1 && part_name.Trim() != "" || part_name.Trim() == "");
+                              && (x.name.IndexOf(part_name.Trim()) != -1 && part_name.Trim() != "" || part_name.Trim() == "")
+                              && x.statusID == (int)Status.approve;
             List<lot> lots = lotRep.Get(filter).ToList();
 
             DropDownInit();

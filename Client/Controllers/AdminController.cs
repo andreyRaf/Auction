@@ -37,7 +37,12 @@ namespace Client.Controllers
         public ActionResult GetAdmin(lot change_lot)
         {
             LotRepository lotRep = new LotRepository();
-            Expression<Func<lot, bool>> filter = x => x.statusID == (int)Status.view;
+            Expression<Func<lot, bool>> filter = x => x.lotID == change_lot.lotID;
+            List<lot> c_lot = lotRep.Get(filter).ToList();
+            c_lot[0].statusID = change_lot.statusID;
+            lotRep.Save(c_lot[0]);
+
+            filter = x => x.statusID == (int)Status.view;
             List<lot> lots = lotRep.Get(filter).ToList();
 
             DropDownInit();
