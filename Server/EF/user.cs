@@ -20,5 +20,6 @@ namespace Server.EF
         public int roleID { get; set; }
         public string vk_userID { get; set; }
         public Nullable<System.DateTime> change_on { get; set; }
+        public string password { get; set; }
     }
 }

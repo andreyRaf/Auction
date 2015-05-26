@@ -28,7 +28,6 @@ D:\WORK.GIT\.git\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.
 C:\Auction\Server\bin\Debug\Server.dll.config
 C:\Auction\Server\bin\Debug\Server.dll
 C:\Auction\Server\bin\Debug\Server.pdb
-C:\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Auction\Server\obj\Debug\Server.dll
 C:\Auction\Server\obj\Debug\Server.pdb
 D:\RaFa_\Auction\Auction\Server\bin\Debug\Server.dll.config
@@ -40,3 +39,8 @@ D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.xml
 D:\RaFa_\Auction\Auction\Server\bin\Debug\EntityFramework.SqlServer.xml
 D:\RaFa_\Auction\Auction\Server\obj\Debug\Server.dll
 D:\RaFa_\Auction\Auction\Server\obj\Debug\Server.pdb
+C:\Auction\Server\bin\Debug\EntityFramework.dll
+C:\Auction\Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Auction\Server\bin\Debug\EntityFramework.xml
+C:\Auction\Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Auction\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

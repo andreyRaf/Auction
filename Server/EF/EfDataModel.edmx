@@ -68,6 +68,7 @@
           <Property Name="roleID" Type="int" Nullable="false" />
           <Property Name="vk_userID" Type="nchar" MaxLength="10" />
           <Property Name="change_on" Type="datetime" />
+          <Property Name="password" Type="nvarchar" MaxLength="500" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -136,6 +137,7 @@
           <Property Type="Int32" Name="roleID" Nullable="false" />
           <Property Type="String" Name="vk_userID" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Type="DateTime" Name="change_on" Precision="3" />
+          <Property Type="String" Name="password" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -196,6 +198,7 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="Server.user">
               <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="change_on" ColumnName="change_on" />
                 <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
                 <ScalarProperty Name="roleID" ColumnName="roleID" />

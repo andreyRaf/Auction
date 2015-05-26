@@ -195,7 +195,6 @@ C:\Auction\Client\bin\System.Web.Razor.xml
 C:\Auction\Client\bin\System.Web.WebPages.xml
 C:\Auction\Client\bin\System.Web.WebPages.Deployment.xml
 C:\Auction\Client\bin\System.Web.WebPages.Razor.xml
-C:\Auction\Client\bin\ru\EntityFramework.resources.dll
 C:\Auction\Client\bin\ru\System.Web.Mvc.resources.dll
 C:\Auction\Client\bin\ru\System.Web.Optimization.resources.dll
 C:\Auction\Client\bin\ru\System.Web.Providers.resources.dll
@@ -250,3 +249,5 @@ D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.WebPages.Deployment.resources.
 D:\RaFa_\Auction\Auction\Client\bin\ru\System.Web.WebPages.Razor.resources.dll
 D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.dll
 D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.pdb
+C:\Auction\Client\bin\EntityFramework.SqlServer.dll
+C:\Auction\Client\bin\EntityFramework.SqlServer.xml

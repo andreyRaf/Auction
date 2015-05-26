@@ -114,12 +114,14 @@
     <Compile Include="Repositories\ImplRepositories\CategoryRepository.cs" />
     <Compile Include="Repositories\ImplRepositories\CityRepository.cs" />
     <Compile Include="Repositories\ImplRepositories\StatusRepository.cs" />
+    <Compile Include="Repositories\ImplRepositories\UserRepository.cs" />
     <Compile Include="Repositories\IntfRepositories\ICategoryRepository.cs" />
     <Compile Include="Repositories\IntfRepositories\ICityRepository.cs" />
     <Compile Include="Repositories\IntfRepositories\ILotRepository.cs" />
     <Compile Include="Repositories\IntfRepositories\IRepository.cs" />
     <Compile Include="Repositories\ImplRepositories\LotRepository.cs" />
     <Compile Include="Repositories\IntfRepositories\IStatusRepository.cs" />
+    <Compile Include="Repositories\IntfRepositories\IUserRepository.cs" />
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>

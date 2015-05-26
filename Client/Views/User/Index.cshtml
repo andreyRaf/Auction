@@ -1,0 +1,49 @@
+﻿@using Client
+@model LoginModel
+<h2>
+  Регистрация</h2>
+    @if (Model == null)
+    {
+        using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <label>
+            Имя
+            @Html.TextBoxFor(m => m.Name)
+            </label>
+            <label>
+            Почта
+            @Html.TextBoxFor(m => m.Email)
+            </label>
+            <label>
+            Пароль
+            @Html.TextBoxFor(m => m.Password)
+            </label>
+            <input type="submit" value="Зарегистрироваться" />
+        }
+    }
+    else if(Model != null && Model.Email == null)
+    {
+        using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <label>
+            Имя
+            @Html.TextBoxFor(m => m.Name)
+            </label>
+            <label>
+            Почта
+            @Html.TextBoxFor(m => m.Email)
+            </label>
+            <label>
+            Пароль
+            @Html.TextBoxFor(m => m.Password)
+            </label>
+            <input type="submit" value="Зарегистрироваться" />
+        }
+        <div>Пользователь с таким почтовым адресом уже зарегистрирован в системе.</div>
+    }
+    else
+    {
+        <div>Регистрация прошла успешно. Теперь Вы можете войти сиcтему.</div>
+    }

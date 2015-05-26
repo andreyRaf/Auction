@@ -1,0 +1,61 @@
+﻿@using Client
+@model LoginModel
+<h2>
+  Вход в систему</h2>
+<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+
+<div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+
+<script>
+    VK.init({
+        apiId: 4930521
+    });
+    //VK.Auth.getLoginStatus(authInfo);
+    VK.UI.button('login_button');
+</script>
+<script>
+    function authInfo(response) {
+        window.id = "";
+        window.name = "";
+        if (response.session) {
+            var code;
+            code = 'return {'
+            code += 'me: API.getProfiles({uids: "' + response.session.mid + '", fields: "first_name, last_name, nickname, bdate"})[0]';
+            code += '};';
+            VK.Api.call('execute', { 'code': code },
+            function(r) {
+                window.name = r.response.me.first_name; // имя
+                r.response.me.last_name;  // фамилия
+                r.response.me.nickname;   // никнейм
+                r.response.me.bdate;      // дата рождения
+                window.id = r.response.me.uid;         // id
+                if (window.XMLHttpRequest) { xmlhttpp = new XMLHttpRequest(); } else { xmlhttpp = new ActiveXObject("Microsoft.XMLHTTP"); }
+                url = '/Login/VK'
+                parms = new Array();
+                parms[0] = "vkID=" + window.id;
+                parms[1] = "name=" + window.name;
+                xmlhttpp.open("GET", url + "?" + parms.join("&"), false)
+                xmlhttpp.send();
+            });
+        } else {
+            alert('not auth');
+        }
+    }
+</script>
+@using (Html.BeginForm())
+        {
+            <label>
+            Почта
+            @Html.TextBoxFor(m => m.Email)
+            </label>
+            <label>
+            Пароль
+            @Html.TextBoxFor(m => m.Password)
+            </label>
+            <input type="submit" value="Войти" />
+        }
+@if (Model != null && Model.Email == null && Model.Password == null)
+{
+    <div>Пользователя с такими данными не существует. Проверьте правильность введенных данных.</div>
+}
+

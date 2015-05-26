@@ -1,4 +1,5 @@
 ﻿@using System.Collections.Generic
+@using Client
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,27 @@
 </head>
 <body>
   <div id="header">
-    <div class="title">Аукцион  @Html.ActionLink("Выставить лот", "Checkout", "Checkout") 
-                                @Html.ActionLink("Админка", "GetAdmin", "Admin") 
+    <div class="title">Аукцион  
+        <div class="menu">
+            @Html.ActionLink("Выставить лот", "Checkout", "Checkout")
+            @if ((Session["login"] as LoginModel) != null && (Session["login"] as LoginModel).RoleID == 1)
+            { 
+                @Html.ActionLink("Админка", "GetAdmin", "Admin")
+            }
+        </div> 
+        <div class="login">
+            @if ((Session["login"] as LoginModel) != null)
+            {    
+                <li>@((Session["login"] as LoginModel).Name)</li>
+                <li>@((Session["login"] as LoginModel).Email)</li>
+                <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Вход", "Index", "Login")</li>
+                <li>@Html.ActionLink("Регистрация", "Index", "User")</li>
+            }
+        </div>
     </div>
   </div>
   <div id="categories">

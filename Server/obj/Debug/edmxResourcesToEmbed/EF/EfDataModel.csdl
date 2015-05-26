@@ -63,5 +63,6 @@
     <Property Type="Int32" Name="roleID" Nullable="false" />
     <Property Type="String" Name="vk_userID" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Type="DateTime" Name="change_on" Precision="3" />
+    <Property Type="String" Name="password" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -128,10 +128,13 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\LotsListViewModel.cs" />
+    <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Direct.cs" />
   </ItemGroup>
@@ -225,6 +228,8 @@
     <Content Include="Views\Checkout\Checkout.cshtml" />
     <Content Include="Views\Checkout\Thanks.cshtml" />
     <Content Include="Views\Admin\GetAdmin.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

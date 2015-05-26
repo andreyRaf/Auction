@@ -63,5 +63,6 @@
     <Property Name="roleID" Type="int" Nullable="false" />
     <Property Name="vk_userID" Type="nchar" MaxLength="10" />
     <Property Name="change_on" Type="datetime" />
+    <Property Name="password" Type="nvarchar" MaxLength="500" />
   </EntityType>
 </Schema>

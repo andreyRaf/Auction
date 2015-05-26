@@ -54,6 +54,7 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="Server.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="change_on" ColumnName="change_on" />
           <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
           <ScalarProperty Name="roleID" ColumnName="roleID" />
