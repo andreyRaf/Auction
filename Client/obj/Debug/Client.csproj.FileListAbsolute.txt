@@ -158,7 +158,6 @@ D:\WORK.GIT\.git\Auction\Client\bin\System.Web.Razor.xml
 D:\WORK.GIT\.git\Auction\Client\bin\System.Web.WebPages.xml
 D:\WORK.GIT\.git\Auction\Client\bin\System.Web.WebPages.Deployment.xml
 D:\WORK.GIT\.git\Auction\Client\bin\System.Web.WebPages.Razor.xml
-D:\WORK.GIT\.git\Auction\Client\bin\ru\EntityFramework.resources.dll
 D:\WORK.GIT\.git\Auction\Client\bin\ru\System.Net.Http.Formatting.resources.dll
 D:\WORK.GIT\.git\Auction\Client\bin\ru\System.Web.Http.resources.dll
 D:\WORK.GIT\.git\Auction\Client\bin\ru\System.Web.Http.WebHost.resources.dll
@@ -251,3 +250,6 @@ D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.dll
 D:\RaFa_\Auction\Auction\Client\obj\Debug\Client.pdb
 C:\Auction\Client\bin\EntityFramework.SqlServer.dll
 C:\Auction\Client\bin\EntityFramework.SqlServer.xml
+D:\WORK.GIT\.git\Auction\Client\bin\Client.dll.config
+D:\WORK.GIT\.git\Auction\Client\bin\EntityFramework.SqlServer.dll
+D:\WORK.GIT\.git\Auction\Client\bin\EntityFramework.SqlServer.xml

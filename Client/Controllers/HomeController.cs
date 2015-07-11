@@ -25,18 +25,25 @@ namespace Client.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            LotRepository lotRep = new LotRepository();
-            Expression<Func<lot, bool>> filter = x => x.statusID == (int)Status.approve;
-            List<lot> lots = lotRep.Get(filter).ToList();
+            try
+            {
+                LotRepository lotRep = new LotRepository();
+                Expression<Func<lot, bool>> filter = x => x.statusID == (int)Status.approve;
+                List<lot> lots = lotRep.Get(filter).ToList();
 
-            DropDownInit();
+                DropDownInit();
 
-            LotsListViewModel model = new LotsListViewModel
-                 {
-                     lots = lots
-                 };
+                LotsListViewModel model = new LotsListViewModel
+                     {
+                         lots = lots
+                     };
 
-            return View(model);
+                return View(model);
+            }
+            catch (Exception error)
+            {
+                return View();
+            }
         }
 
         [HttpPost]
