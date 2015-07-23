@@ -1,68 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Server" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="DataContext" p1:LazyLoadingEnabled="true">
-    <EntitySet Name="categories" EntityType="Server.category" />
-    <EntitySet Name="cities" EntityType="Server.city" />
-    <EntitySet Name="lots" EntityType="Server.lot" />
-    <EntitySet Name="roles" EntityType="Server.role" />
-    <EntitySet Name="t_status" EntityType="Server.t_status" />
-    <EntitySet Name="users" EntityType="Server.user" />
-  </EntityContainer>
+<Schema Namespace="DB_9CF254_auctionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="category">
     <Key>
-      <PropertyRef Name="categoryID" />
+      <PropertyRef Name="name" />
     </Key>
-    <Property Name="categoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="categoryID" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="city">
     <Key>
-      <PropertyRef Name="cityID" />
+      <PropertyRef Name="name" />
     </Key>
-    <Property Name="cityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cityID" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lot_images">
+    <Key>
+      <PropertyRef Name="path" />
+    </Key>
+    <Property Name="imageID" Type="Int64" />
+    <Property Name="lotID" Type="Decimal" Precision="13" Scale="0" />
+    <Property Name="path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="lot">
     <Key>
-      <PropertyRef Name="lotID" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="description" />
+      <PropertyRef Name="currentPrice" />
+      <PropertyRef Name="step" />
+      <PropertyRef Name="blic" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="cityID" />
+      <PropertyRef Name="categoryID" />
+      <PropertyRef Name="userID" />
+      <PropertyRef Name="statusID" />
     </Key>
-    <Property Name="lotID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-    <Property Name="currentPrice" Type="Double" />
-    <Property Name="step" Type="Double" />
-    <Property Name="blic" Type="Double" />
-    <Property Name="date" Type="DateTime" Precision="3" />
-    <Property Name="image" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-    <Property Name="cityID" Type="Int32" />
-    <Property Name="categoryID" Type="Int32" />
-    <Property Type="Int64" Name="userID" />
-    <Property Type="Int32" Name="statusID" />
+    <Property Name="lotID" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="currentPrice" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="step" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="blic" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cityID" Type="Int32" Nullable="false" />
+    <Property Name="categoryID" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="statusID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="role">
     <Key>
-      <PropertyRef Name="roleID" />
+      <PropertyRef Name="name" />
     </Key>
-    <Property Type="Int32" Name="roleID" Nullable="false" />
-    <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="roleID" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="t_status">
     <Key>
-      <PropertyRef Name="statusID" />
+      <PropertyRef Name="status" />
     </Key>
-    <Property Type="Int64" Name="statusID" Nullable="false" />
-    <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="statusID" Type="Int64" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="user">
     <Key>
-      <PropertyRef Name="userID" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="roleID" />
     </Key>
-    <Property Type="Int64" Name="userID" Nullable="false" />
-    <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="mail" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="roleID" Nullable="false" />
-    <Property Type="String" Name="vk_userID" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="DateTime" Name="change_on" Precision="3" />
-    <Property Type="String" Name="password" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="roleID" Type="Int32" Nullable="false" />
+    <Property Name="vk_userID" Type="Int32" />
+    <Property Name="change_on" Type="DateTime" Precision="0" />
   </EntityType>
+  <EntityContainer Name="DB_9CF254_auctionsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="lot_images" EntityType="Self.lot_images" />
+    <EntitySet Name="lots" EntityType="Self.lot" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="t_status" EntityType="Self.t_status" />
+    <EntitySet Name="users" EntityType="Self.user" />
+  </EntityContainer>
 </Schema>

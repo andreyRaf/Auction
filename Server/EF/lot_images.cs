@@ -12,9 +12,10 @@ namespace Server.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class role
+    public partial class lot_images
     {
-        public Nullable<long> roleID { get; set; }
-        public string name { get; set; }
+        public Nullable<long> imageID { get; set; }
+        public Nullable<decimal> lotID { get; set; }
+        public string path { get; set; }
     }
 }

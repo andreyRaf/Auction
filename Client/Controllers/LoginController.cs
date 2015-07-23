@@ -17,7 +17,7 @@ namespace Client.Controllers
         }
 
         [HttpGet]
-        public ActionResult VK(string vkID, string name)
+        public ActionResult VK(int? vkID, string name)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Client.Controllers
                     model.Name = users[0].name;
                     model.Password = users[0].password;
                     model.RoleID = users[0].roleID;
-                    model.vkID = users[0].vk_userID;
+                    model.vkID = users[0].vk_userID.ToString();
                     Session["login"] = model;
                     Response.Redirect("/Login", true);
                     return View(model);
@@ -49,7 +49,7 @@ namespace Client.Controllers
                     model.Name = newUser.name;
                     model.Password = newUser.password;
                     model.RoleID = newUser.roleID;
-                    model.vkID = newUser.vk_userID;
+                    model.vkID = newUser.vk_userID.ToString();
                     Session["login"] = model;
                     Response.Redirect("/Login", true);
                     return View(model);
