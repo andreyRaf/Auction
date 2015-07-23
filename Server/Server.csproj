@@ -90,7 +90,7 @@
     <Compile Include="EF\lot.cs">
       <DependentUpon>EfDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\lot_images.cs">
+    <Compile Include="EF\lot_image.cs">
       <DependentUpon>EfDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\role.cs">
@@ -99,7 +99,7 @@
     <Compile Include="EF\t_status.cs">
       <DependentUpon>EfDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\user.cs">
+    <Compile Include="EF\t_user.cs">
       <DependentUpon>EfDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

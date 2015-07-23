@@ -47,3 +47,12 @@ D:\WORK.GIT\.git\Auction\Server\bin\Debug\EntityFramework.dll
 D:\WORK.GIT\.git\Auction\Server\bin\Debug\EntityFramework.SqlServer.dll
 D:\WORK.GIT\.git\Auction\Server\bin\Debug\EntityFramework.xml
 D:\WORK.GIT\.git\Auction\Server\bin\Debug\EntityFramework.SqlServer.xml
+D:\roj\Auction\Server\obj\Debug\Server.dll
+D:\roj\Auction\Server\obj\Debug\Server.pdb
+D:\roj\Auction\Server\bin\Debug\Server.dll.config
+D:\roj\Auction\Server\bin\Debug\Server.dll
+D:\roj\Auction\Server\bin\Debug\Server.pdb
+D:\roj\Auction\Server\bin\Debug\EntityFramework.dll
+D:\roj\Auction\Server\bin\Debug\EntityFramework.SqlServer.dll
+D:\roj\Auction\Server\bin\Debug\EntityFramework.xml
+D:\roj\Auction\Server\bin\Debug\EntityFramework.SqlServer.xml

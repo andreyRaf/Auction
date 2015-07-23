@@ -4,71 +4,71 @@
     <EntitySetMapping Name="categories">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.category">
         <MappingFragment StoreEntitySet="category">
-          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cities">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.city">
         <MappingFragment StoreEntitySet="city">
-          <ScalarProperty Name="cityID" ColumnName="cityID" />
           <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="lot_images">
-      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.lot_images">
-        <MappingFragment StoreEntitySet="lot_images">
-          <ScalarProperty Name="imageID" ColumnName="imageID" />
-          <ScalarProperty Name="lotID" ColumnName="lotID" />
-          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="lots">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.lot">
-        <MappingFragment StoreEntitySet="lots">
-          <ScalarProperty Name="lotID" ColumnName="lotID" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
-          <ScalarProperty Name="step" ColumnName="step" />
-          <ScalarProperty Name="blic" ColumnName="blic" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="cityID" ColumnName="cityID" />
-          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
-          <ScalarProperty Name="userID" ColumnName="userID" />
+        <MappingFragment StoreEntitySet="lot">
           <ScalarProperty Name="statusID" ColumnName="statusID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="blic" ColumnName="blic" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lotID" ColumnName="lotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lot_image">
+      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.lot_image">
+        <MappingFragment StoreEntitySet="lot_image">
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="lotID" ColumnName="lotID" />
+          <ScalarProperty Name="imageID" ColumnName="imageID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="roles">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.role">
-        <MappingFragment StoreEntitySet="roles">
-          <ScalarProperty Name="roleID" ColumnName="roleID" />
+        <MappingFragment StoreEntitySet="role">
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="t_status">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.t_status">
         <MappingFragment StoreEntitySet="t_status">
-          <ScalarProperty Name="statusID" ColumnName="statusID" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.user">
-        <MappingFragment StoreEntitySet="users">
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="roleID" ColumnName="roleID" />
-          <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
+    <EntitySetMapping Name="t_user">
+      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.t_user">
+        <MappingFragment StoreEntitySet="t_user">
           <ScalarProperty Name="change_on" ColumnName="change_on" />
+          <ScalarProperty Name="vk_userID" ColumnName="vk_userID" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

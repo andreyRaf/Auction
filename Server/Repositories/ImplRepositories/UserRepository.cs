@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server.Repositories.ImplRepositories
 {
-    public class UserRepository : BaseRepository<user>, IUserRepository
+    public class UserRepository : BaseRepository<t_user>, IUserRepository
     {
     }
 }

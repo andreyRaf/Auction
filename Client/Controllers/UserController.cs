@@ -26,9 +26,9 @@ namespace Client.Controllers
             try
             {
                 UserRepository userRep = new UserRepository();
-                Expression<Func<user, bool>> filter =
+                Expression<Func<t_user, bool>> filter =
                 x => (x.mail == Email && Email != null);
-                List<user> users = userRep.Get(filter).ToList();
+                List<t_user> users = userRep.Get(filter).ToList();
                 LoginModel model = new LoginModel();
 
                 if (users.Count > 0)
@@ -37,7 +37,7 @@ namespace Client.Controllers
                 }
                 else
                 {
-                    user newUser = new user();
+                    t_user newUser = new t_user();
                     newUser.name = Name;
                     newUser.mail = Email;
                     newUser.password = Password;

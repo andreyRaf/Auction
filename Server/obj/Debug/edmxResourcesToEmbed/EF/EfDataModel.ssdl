@@ -1,37 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище DB_9CF254_auctionsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.category" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+<Schema Namespace="Хранилище DB_9CF254_auctionsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="category">
     <Key>
+      <PropertyRef Name="categoryID" />
       <PropertyRef Name="name" />
     </Key>
-    <Property Name="categoryID" Type="bigint" />
-    <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.city" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="city">
-    <Key>
-      <PropertyRef Name="name" />
-    </Key>
-    <Property Name="cityID" Type="bigint" />
+    <Property Name="categoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.lot_images" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="lot_images">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.city' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="city">
     <Key>
-      <PropertyRef Name="path" />
+      <PropertyRef Name="cityID" />
+      <PropertyRef Name="name" />
     </Key>
-    <Property Name="imageID" Type="bigint" />
-    <Property Name="lotID" Type="decimal" Precision="13" Scale="0" />
-    <Property Name="path" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="cityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.lots" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="lots">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lot">
     <Key>
+      <PropertyRef Name="lotID" />
       <PropertyRef Name="name" />
       <PropertyRef Name="description" />
       <PropertyRef Name="currentPrice" />
@@ -43,7 +36,7 @@
       <PropertyRef Name="userID" />
       <PropertyRef Name="statusID" />
     </Key>
-    <Property Name="lotID" Type="bigint" />
+    <Property Name="lotID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="description" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="currentPrice" Type="decimal" Precision="14" Scale="2" Nullable="false" />
@@ -55,32 +48,46 @@
     <Property Name="userID" Type="int" Nullable="false" />
     <Property Name="statusID" Type="int" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.roles" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="roles">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot_image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="lot_image">
     <Key>
+      <PropertyRef Name="imageID" />
+      <PropertyRef Name="path" />
+    </Key>
+    <Property Name="imageID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lotID" Type="decimal" Precision="13" Scale="0" />
+    <Property Name="path" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="roleID" />
       <PropertyRef Name="name" />
     </Key>
-    <Property Name="roleID" Type="bigint" />
+    <Property Name="roleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.t_status" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="t_status">
     <Key>
+      <PropertyRef Name="statusID" />
       <PropertyRef Name="status" />
     </Key>
-    <Property Name="statusID" Type="bigint" />
+    <Property Name="statusID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.users" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="users">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="t_user">
     <Key>
+      <PropertyRef Name="userID" />
       <PropertyRef Name="name" />
       <PropertyRef Name="roleID" />
     </Key>
-    <Property Name="userID" Type="bigint" />
+    <Property Name="userID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="250" />
     <Property Name="mail" Type="nvarchar" MaxLength="250" />
@@ -101,33 +108,33 @@
     [city].[name] AS [name]
     FROM [dbo].[city] AS [city]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="lot_images" EntityType="Self.lot_images" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="lot" EntityType="Self.lot" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [lot_images].[imageID] AS [imageID], 
-    [lot_images].[lotID] AS [lotID], 
-    [lot_images].[path] AS [path]
-    FROM [dbo].[lot_images] AS [lot_images]</DefiningQuery>
+    [lot].[lotID] AS [lotID], 
+    [lot].[name] AS [name], 
+    [lot].[description] AS [description], 
+    [lot].[currentPrice] AS [currentPrice], 
+    [lot].[step] AS [step], 
+    [lot].[blic] AS [blic], 
+    [lot].[date] AS [date], 
+    [lot].[cityID] AS [cityID], 
+    [lot].[categoryID] AS [categoryID], 
+    [lot].[userID] AS [userID], 
+    [lot].[statusID] AS [statusID]
+    FROM [dbo].[lot] AS [lot]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="lots" EntityType="Self.lots" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="lot_image" EntityType="Self.lot_image" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [lots].[lotID] AS [lotID], 
-    [lots].[name] AS [name], 
-    [lots].[description] AS [description], 
-    [lots].[currentPrice] AS [currentPrice], 
-    [lots].[step] AS [step], 
-    [lots].[blic] AS [blic], 
-    [lots].[date] AS [date], 
-    [lots].[cityID] AS [cityID], 
-    [lots].[categoryID] AS [categoryID], 
-    [lots].[userID] AS [userID], 
-    [lots].[statusID] AS [statusID]
-    FROM [dbo].[lots] AS [lots]</DefiningQuery>
+    [lot_image].[imageID] AS [imageID], 
+    [lot_image].[lotID] AS [lotID], 
+    [lot_image].[path] AS [path]
+    FROM [dbo].[lot_image] AS [lot_image]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="roles" EntityType="Self.roles" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="role" EntityType="Self.role" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [roles].[roleID] AS [roleID], 
-    [roles].[name] AS [name]
-    FROM [dbo].[roles] AS [roles]</DefiningQuery>
+    [role].[roleID] AS [roleID], 
+    [role].[name] AS [name]
+    FROM [dbo].[role] AS [role]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="t_status" EntityType="Self.t_status" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -135,16 +142,16 @@
     [t_status].[status] AS [status]
     FROM [dbo].[t_status] AS [t_status]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="users" EntityType="Self.users" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="t_user" EntityType="Self.t_user" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [users].[userID] AS [userID], 
-    [users].[name] AS [name], 
-    [users].[password] AS [password], 
-    [users].[mail] AS [mail], 
-    [users].[roleID] AS [roleID], 
-    [users].[vk_userID] AS [vk_userID], 
-    [users].[change_on] AS [change_on]
-    FROM [dbo].[users] AS [users]</DefiningQuery>
+    [t_user].[userID] AS [userID], 
+    [t_user].[name] AS [name], 
+    [t_user].[password] AS [password], 
+    [t_user].[mail] AS [mail], 
+    [t_user].[roleID] AS [roleID], 
+    [t_user].[vk_userID] AS [vk_userID], 
+    [t_user].[change_on] AS [change_on]
+    FROM [dbo].[t_user] AS [t_user]</DefiningQuery>
     </EntitySet>
   </EntityContainer>
 </Schema>

@@ -23,9 +23,9 @@ namespace Client.Controllers
             {
                 LoginModel model = new LoginModel();
                 UserRepository userRep = new UserRepository();
-                Expression<Func<user, bool>> filter =
+                Expression<Func<t_user, bool>> filter =
                 x => (x.vk_userID == vkID && vkID != null);
-                List<user> users = userRep.Get(filter).ToList();
+                List<t_user> users = userRep.Get(filter).ToList();
 
                 if (users != null && users.Count == 1)
                 {
@@ -40,7 +40,7 @@ namespace Client.Controllers
                 }
                 else if (users != null && users.Count == 0)
                 {
-                    user newUser = new user();
+                    t_user newUser = new t_user();
                     newUser.name = name;
                     newUser.roleID = 2;
                     newUser.vk_userID = vkID;
@@ -68,10 +68,10 @@ namespace Client.Controllers
             try
             {
                 UserRepository userRep = new UserRepository();
-                Expression<Func<user, bool>> filter =
+                Expression<Func<t_user, bool>> filter =
                 x => (x.mail == Email && Email != null)
                     && (x.password == Password && Password != null);
-                List<user> users = userRep.Get(filter).ToList();
+                List<t_user> users = userRep.Get(filter).ToList();
                 LoginModel model = new LoginModel();
                 if (users.Count == 1)
                 {

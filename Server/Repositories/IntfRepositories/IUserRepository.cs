@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public interface IUserRepository : IRepository<user>
+    public interface IUserRepository : IRepository<t_user>
     {
     }
 }

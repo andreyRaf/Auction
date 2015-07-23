@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e6e653b7355943209ad8d964f12cb4e1" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.city" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.lot_images" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.lot" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.role" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.t_status" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.user" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.city" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.lot" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.lot_image" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.role" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.t_status" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_9CF254_auctionsModel.t_user" Width="1.5" PointX="6.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
