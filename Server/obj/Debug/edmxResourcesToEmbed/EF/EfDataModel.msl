@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Хранилище DB_9CF254_auctionsModelContainer" CdmEntityContainer="DB_9CF254_auctionsEntities">
-    <EntitySetMapping Name="categories">
-      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.category">
-        <MappingFragment StoreEntitySet="category">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="cities">
-      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.city">
-        <MappingFragment StoreEntitySet="city">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="cityID" ColumnName="cityID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="lots">
       <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.lot">
         <MappingFragment StoreEntitySet="lot">
@@ -31,6 +15,22 @@
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="lotID" ColumnName="lotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

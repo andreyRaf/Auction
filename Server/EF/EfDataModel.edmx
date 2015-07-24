@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище DB_9CF254_auctionsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="Хранилище DB_9CF254_auctionsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.category" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryID" />
@@ -15,8 +15,8 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.category' does not have a p
           <Property Name="categoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.city' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.city" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="city">
           <Key>
             <PropertyRef Name="cityID" />
@@ -25,21 +25,9 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.city' does not have a prima
           <Property Name="cityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="lot">
           <Key>
             <PropertyRef Name="lotID" />
-            <PropertyRef Name="name" />
-            <PropertyRef Name="description" />
-            <PropertyRef Name="currentPrice" />
-            <PropertyRef Name="step" />
-            <PropertyRef Name="blic" />
-            <PropertyRef Name="date" />
-            <PropertyRef Name="cityID" />
-            <PropertyRef Name="categoryID" />
-            <PropertyRef Name="userID" />
-            <PropertyRef Name="statusID" />
           </Key>
           <Property Name="lotID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
@@ -53,8 +41,8 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot' does not have a primar
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="statusID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot_image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.lot_image" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="lot_image">
           <Key>
             <PropertyRef Name="imageID" />
@@ -64,8 +52,8 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.lot_image' does not have a 
           <Property Name="lotID" Type="decimal" Precision="13" Scale="0" />
           <Property Name="path" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.role" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="roleID" />
@@ -74,8 +62,8 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.role' does not have a prima
           <Property Name="roleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.t_status" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="t_status">
           <Key>
             <PropertyRef Name="statusID" />
@@ -84,8 +72,8 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_status' does not have a p
           <Property Name="statusID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DB_9CF254_auctions.dbo.t_user" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="t_user">
           <Key>
             <PropertyRef Name="userID" />
@@ -101,6 +89,7 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
           <Property Name="change_on" Type="date" />
         </EntityType>
         <EntityContainer Name="Хранилище DB_9CF254_auctionsModelContainer">
+          <EntitySet Name="lot" EntityType="Self.lot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="category" EntityType="Self.category" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [category].[categoryID] AS [categoryID], 
@@ -112,21 +101,6 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
     [city].[cityID] AS [cityID], 
     [city].[name] AS [name]
     FROM [dbo].[city] AS [city]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="lot" EntityType="Self.lot" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [lot].[lotID] AS [lotID], 
-    [lot].[name] AS [name], 
-    [lot].[description] AS [description], 
-    [lot].[currentPrice] AS [currentPrice], 
-    [lot].[step] AS [step], 
-    [lot].[blic] AS [blic], 
-    [lot].[date] AS [date], 
-    [lot].[cityID] AS [cityID], 
-    [lot].[categoryID] AS [categoryID], 
-    [lot].[userID] AS [userID], 
-    [lot].[statusID] AS [statusID]
-    FROM [dbo].[lot] AS [lot]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="lot_image" EntityType="Self.lot_image" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -164,14 +138,30 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
     <edmx:ConceptualModels>
       <Schema Namespace="DB_9CF254_auctionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DB_9CF254_auctionsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="lots" EntityType="DB_9CF254_auctionsModel.lot" />
           <EntitySet Name="categories" EntityType="DB_9CF254_auctionsModel.category" />
           <EntitySet Name="cities" EntityType="DB_9CF254_auctionsModel.city" />
-          <EntitySet Name="lots" EntityType="DB_9CF254_auctionsModel.lot" />
           <EntitySet Name="lot_image" EntityType="DB_9CF254_auctionsModel.lot_image" />
           <EntitySet Name="roles" EntityType="DB_9CF254_auctionsModel.role" />
           <EntitySet Name="t_status" EntityType="DB_9CF254_auctionsModel.t_status" />
           <EntitySet Name="t_user" EntityType="DB_9CF254_auctionsModel.t_user" />
         </EntityContainer>
+        <EntityType Name="lot">
+          <Key>
+            <PropertyRef Name="lotID" />
+          </Key>
+          <Property Name="lotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="currentPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+          <Property Name="step" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+          <Property Name="blic" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cityID" Type="Int32" Nullable="false" />
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="statusID" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryID" />
@@ -187,32 +177,6 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
           </Key>
           <Property Name="cityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="lot">
-          <Key>
-            <PropertyRef Name="lotID" />
-            <PropertyRef Name="name" />
-            <PropertyRef Name="description" />
-            <PropertyRef Name="currentPrice" />
-            <PropertyRef Name="step" />
-            <PropertyRef Name="blic" />
-            <PropertyRef Name="date" />
-            <PropertyRef Name="cityID" />
-            <PropertyRef Name="categoryID" />
-            <PropertyRef Name="userID" />
-            <PropertyRef Name="statusID" />
-          </Key>
-          <Property Name="lotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="currentPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-          <Property Name="step" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-          <Property Name="blic" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="cityID" Type="Int32" Nullable="false" />
-          <Property Name="categoryID" Type="Int32" Nullable="false" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="statusID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="lot_image">
           <Key>
@@ -259,22 +223,6 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище DB_9CF254_auctionsModelContainer" CdmEntityContainer="DB_9CF254_auctionsEntities">
-          <EntitySetMapping Name="categories">
-            <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.category">
-              <MappingFragment StoreEntitySet="category">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cities">
-            <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.city">
-              <MappingFragment StoreEntitySet="city">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="cityID" ColumnName="cityID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="lots">
             <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.lot">
               <MappingFragment StoreEntitySet="lot">
@@ -289,6 +237,22 @@ warning 6002: The table/view 'DB_9CF254_auctions.dbo.t_user' does not have a pri
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="lotID" ColumnName="lotID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="DB_9CF254_auctionsModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cityID" ColumnName="cityID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

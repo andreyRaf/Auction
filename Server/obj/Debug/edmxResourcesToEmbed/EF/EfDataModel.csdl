@@ -1,14 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_9CF254_auctionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DB_9CF254_auctionsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="lots" EntityType="DB_9CF254_auctionsModel.lot" />
     <EntitySet Name="categories" EntityType="DB_9CF254_auctionsModel.category" />
     <EntitySet Name="cities" EntityType="DB_9CF254_auctionsModel.city" />
-    <EntitySet Name="lots" EntityType="DB_9CF254_auctionsModel.lot" />
     <EntitySet Name="lot_image" EntityType="DB_9CF254_auctionsModel.lot_image" />
     <EntitySet Name="roles" EntityType="DB_9CF254_auctionsModel.role" />
     <EntitySet Name="t_status" EntityType="DB_9CF254_auctionsModel.t_status" />
     <EntitySet Name="t_user" EntityType="DB_9CF254_auctionsModel.t_user" />
   </EntityContainer>
+  <EntityType Name="lot">
+    <Key>
+      <PropertyRef Name="lotID" />
+    </Key>
+    <Property Name="lotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="currentPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="step" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="blic" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cityID" Type="Int32" Nullable="false" />
+    <Property Name="categoryID" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="statusID" Type="Int32" Nullable="false" />
+  </EntityType>
   <EntityType Name="category">
     <Key>
       <PropertyRef Name="categoryID" />
@@ -24,32 +40,6 @@
     </Key>
     <Property Name="cityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="lot">
-    <Key>
-      <PropertyRef Name="lotID" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="description" />
-      <PropertyRef Name="currentPrice" />
-      <PropertyRef Name="step" />
-      <PropertyRef Name="blic" />
-      <PropertyRef Name="date" />
-      <PropertyRef Name="cityID" />
-      <PropertyRef Name="categoryID" />
-      <PropertyRef Name="userID" />
-      <PropertyRef Name="statusID" />
-    </Key>
-    <Property Name="lotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="currentPrice" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-    <Property Name="step" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-    <Property Name="blic" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
-    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="cityID" Type="Int32" Nullable="false" />
-    <Property Name="categoryID" Type="Int32" Nullable="false" />
-    <Property Name="userID" Type="Int32" Nullable="false" />
-    <Property Name="statusID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="lot_image">
     <Key>
